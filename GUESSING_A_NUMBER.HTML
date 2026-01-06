@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Guess the Number (1 to 10)</h2>
+
+  <input type="number" id="guess" placeholder="Enter number">
+  <button onclick="checkGuess()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+    function checkGuess() {
+      let userGuess = document.getElementById("guess").value;
+      let result = document.getElementById("result");
+
+      if (userGuess == randomNumber) {
+        result.innerHTML = "🎉 Correct Guess!";
+      } else if (userGuess > randomNumber) {
+        result.innerHTML = "Too High!";
+      } else {
+        result.innerHTML = "Too Low!";
+      }
+    }
+  </script>
+
+</body>
+</html>
